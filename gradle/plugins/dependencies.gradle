@@ -5,9 +5,9 @@ repositories {
 }
 
 dependencies {
-    implementation('br.com.valdircezar:hd-commons-lib:1.0.0') {
-        because('Biblioteca de classes em comum entre os componentes do projeto')
-    }
+//    implementation('br.com.daniel.userservicelib:commons-lib:1.0.0') {
+//        because('Biblioteca de classes em comum entre os componentes do projeto')
+//    }
 
     implementation('org.springframework.boot:spring-boot-starter-web') {
         because('Starter para desenvolvimento de aplicativos web com Spring Boot')
@@ -45,37 +45,37 @@ dependencies {
         because('Biblioteca para integração com o Feign')
     }
 
-    implementation('com.fasterxml.jackson.datatype:jackson-datatype-jsr310') {
-        because('Biblioteca para serialização de datas do Java 8')
-    }
+//    implementation('com.fasterxml.jackson.datatype:jackson-datatype-jsr310') {
+//        because('Biblioteca para serialização de datas do Java 8')
+//    }
 
     implementation('org.springframework.boot:spring-boot-starter-amqp') {
         because('Starter para integração com o RabbitMQ')
     }
 
-    implementation('org.springframework.boot:spring-boot-starter-data-jpa') {
-        because('Starter para integração com o Spring Data JPA')
-    }
+//    implementation('org.springframework.boot:spring-boot-starter-data-jpa') {
+//        because('Starter para integração com o Spring Data JPA')
+//    }
 
-    implementation('org.springframework.boot:spring-boot-starter-data-redis') {
-        because('Starter para integração com o Redis')
-    }
+//    implementation('org.springframework.boot:spring-boot-starter-data-redis') {
+//        because('Starter para integração com o Redis')
+//    }
 
-    implementation('org.springframework.boot:spring-boot-starter-security') {
-        because('Starter para segurança de aplicações com Spring Security')
-    }
-
-    implementation('io.jsonwebtoken:jjwt-api:0.11.2') {
-        because('Biblioteca para manipulação de tokens JWT')
-    }
-
-    runtimeOnly('io.jsonwebtoken:jjwt-impl:0.11.2') {
-        because('Biblioteca para manipulação de tokens JWT')
-    }
-
-    runtimeOnly('io.jsonwebtoken:jjwt-jackson:0.11.2') {
-        because('Biblioteca para manipulação de tokens JWT')
-    }
+//    implementation('org.springframework.boot:spring-boot-starter-security') {
+//        because('Starter para segurança de aplicações com Spring Security')
+//    }
+//
+//    implementation('io.jsonwebtoken:jjwt-api:0.11.2') {
+//        because('Biblioteca para manipulação de tokens JWT')
+//    }
+//
+//    runtimeOnly('io.jsonwebtoken:jjwt-impl:0.11.2') {
+//        because('Biblioteca para manipulação de tokens JWT')
+//    }
+//
+//    runtimeOnly('io.jsonwebtoken:jjwt-jackson:0.11.2') {
+//        because('Biblioteca para manipulação de tokens JWT')
+//    }
 
     // Lombok
     compileOnly 'org.projectlombok:lombok'
