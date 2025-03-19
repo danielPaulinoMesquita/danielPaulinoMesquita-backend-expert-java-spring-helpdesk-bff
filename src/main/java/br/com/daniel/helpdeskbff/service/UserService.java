@@ -13,26 +13,22 @@ import java.util.List;
 @AllArgsConstructor
 public class UserService {
 
-    private UserFeignClient userFeignClient;
+    private final UserFeignClient userFeignClient;
 
     public UserResponse findById(String id) {
-        return  null;
+        return  userFeignClient.findById(id).getBody();
     }
 
     public void save(CreateUserRequest createUserRequest) {
-
+        userFeignClient.save(createUserRequest);
     }
 
     public UserResponse update(String id, UpdateUserRequest updateUserRequest) {
-       return null;
+       return userFeignClient.update(id, updateUserRequest).getBody();
     }
 
     public List<UserResponse> findAll() {
-        return null;
-    }
-
-    private void find(String id) {
-
+        return userFeignClient.findAll().getBody();
     }
 
 }
