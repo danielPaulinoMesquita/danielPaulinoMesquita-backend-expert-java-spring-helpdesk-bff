@@ -5,13 +5,11 @@ repositories {
 }
 
 dependencies {
-//    implementation('br.com.daniel.userservicelib:commons-lib:1.0.0') {
-//        because('Biblioteca de classes em comum entre os componentes do projeto')
-//    }
-
     implementation('org.springframework.boot:spring-boot-starter-web') {
         because('Starter para desenvolvimento de aplicativos web com Spring Boot')
     }
+
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.4'
 
     implementation('org.springframework.cloud:spring-cloud-starter-bootstrap') {
         because('Starter para configuração do Spring Cloud Config')
@@ -43,6 +41,10 @@ dependencies {
 
     implementation('io.github.openfeign:feign-okhttp:13.2.1') {
         because('Biblioteca para integração com o Feign')
+    }
+
+    implementation('br.com.daniel.userservicelib:commons-lib:1.0.0') {
+        because('Biblioteca de classes em comum entre os componentes do projeto')
     }
 
 //    implementation('com.fasterxml.jackson.datatype:jackson-datatype-jsr310') {
