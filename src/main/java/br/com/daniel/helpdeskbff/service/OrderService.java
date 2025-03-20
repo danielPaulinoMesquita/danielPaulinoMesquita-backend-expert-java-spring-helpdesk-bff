@@ -18,7 +18,6 @@ public class OrderService {
 
     private final OrderFeignClient orderFeignClient;
 
-
     public OrderResponse findById(final Long id) {
         return orderFeignClient.findById(id).getBody();
     }
