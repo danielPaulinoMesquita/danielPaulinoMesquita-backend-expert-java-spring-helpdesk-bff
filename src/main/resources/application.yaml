@@ -14,5 +14,7 @@ eureka:
 springdoc:
   openapi:
     title: 'BFF Helpdesk API'
-    description: 'Component responsible for agregating the microservices of HelpDesk'
+    description: 'Component responsible for aggregating the microservices of HelpDesk'
     version: '1.0.0'
+jwt:
+  secret: 'ZnXUV@^E5g6ozyNFm&Q7uJYaHHjJQF#&AvZAua99c@JGHAk4e9LcKcwuEq^W7gbV'

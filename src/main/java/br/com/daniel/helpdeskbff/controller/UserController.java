@@ -14,6 +14,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -65,8 +66,11 @@ public interface UserController {
                     content = @Content( mediaType = APPLICATION_JSON_VALUE,
                     schema = @Schema(implementation = StandardError.class)))
     })
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping
     ResponseEntity<List<UserResponse>> findAll();
+    // If you use hasAnyRole, just has role in the credentials will be able,
+    // if was a hasAuthority, you need to pass the exactly name of AUTHORITY
 
     @PutMapping("/{id}")
     @Operation(summary = "Update user")
