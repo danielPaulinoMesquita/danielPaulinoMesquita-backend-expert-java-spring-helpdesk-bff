@@ -1,7 +1,6 @@
 package br.com.daniel.helpdeskbff.security;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
@@ -22,8 +21,8 @@ public class JWTUtil {
                     .setSigningKey(secret.getBytes())
                     .build()
                     .parseClaimsJws(token).getBody();
-        } catch (Exception e) {
-            throw new RuntimeException(e.getCause());
+        } catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException | IllegalArgumentException ex) {
+            throw new RuntimeException(ex.getMessage());
         }
     }
 

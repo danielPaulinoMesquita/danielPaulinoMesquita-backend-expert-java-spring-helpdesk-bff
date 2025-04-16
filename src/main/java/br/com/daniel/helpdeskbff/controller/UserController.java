@@ -66,7 +66,7 @@ public interface UserController {
                     content = @Content( mediaType = APPLICATION_JSON_VALUE,
                     schema = @Schema(implementation = StandardError.class)))
     })
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     @GetMapping
     ResponseEntity<List<UserResponse>> findAll();
     // If you use hasAnyRole, just has role in the credentials will be able,

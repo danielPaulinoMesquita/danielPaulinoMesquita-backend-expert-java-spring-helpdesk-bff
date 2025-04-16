@@ -14,6 +14,8 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 import java.io.IOException;
 import java.util.List;
 
+import static org.apache.http.HttpHeaders.AUTHORIZATION;
+
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
     private final JWTUtil jwtUtil;
@@ -23,6 +25,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
         this.jwtUtil = jwtUtil;
     }
 
+    @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain chain) throws IOException, ServletException {
@@ -49,16 +52,12 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     }
 
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
-        String token = request.getHeader("Authorization");
+        final String token = request.getHeader(AUTHORIZATION).substring(7);
 
-        String userName = jwtUtil.getUsername(token);
+        String username = jwtUtil.getUsername(token);
         Claims claims = jwtUtil.getClaims(token);
-        List<GrantedAuthority> authorities =  jwtUtil.getAuthorities(claims);
+        List<GrantedAuthority> authorities = jwtUtil.getAuthorities(claims);
 
-        if (userName != null) {
-            return new UsernamePasswordAuthenticationToken(userName, null, authorities);
-        }
-
-        return null;
+        return username != null ? new UsernamePasswordAuthenticationToken(username, null, authorities) : null;
     }
 }
