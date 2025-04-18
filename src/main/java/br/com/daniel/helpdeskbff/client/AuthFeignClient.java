@@ -1,5 +1,6 @@
 package br.com.daniel.helpdeskbff.client;
 
+import br.com.daniel.helpdeskbff.config.FeignConfig;
 import br.com.userservice.commonslib.model.exceptions.StandardError;
 import br.com.userservice.commonslib.model.requests.AuthenticateRequest;
 import br.com.userservice.commonslib.model.requests.CreateUserRequest;
@@ -24,7 +25,8 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @FeignClient(
         name = "auth-service-api",
-        path = "/api/auth"
+        path = "/api/auth",
+        configuration = FeignConfig.class
 )
 public interface AuthFeignClient {
 

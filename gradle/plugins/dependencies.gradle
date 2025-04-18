@@ -40,7 +40,7 @@ dependencies {
     }
 
     implementation('io.github.openfeign:feign-okhttp:13.2.1') {
-        because('Biblioteca para integração com o Feign')
+        because('Biblioteca para integração com o Feign, resolve exceptions lançadas por terceiros, ex: outro microserviço')
     }
 
     implementation('br.com.daniel.userservicelib:commons-lib:1.0.0') {

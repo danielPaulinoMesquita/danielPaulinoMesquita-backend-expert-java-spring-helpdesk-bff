@@ -5,6 +5,9 @@ spring:
     config:
       uri: 'config-server'
       name: 'helpdesk-bff'
+    openfeign:
+      okhttp:
+        enabled: true
   data:
     redis:
       host: ${REDIS_HOST:localhost}

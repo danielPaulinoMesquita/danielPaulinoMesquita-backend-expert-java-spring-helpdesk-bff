@@ -31,8 +31,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-                .addFilterBefore(new JWTAuthorizationFilter(authConfig.getAuthenticationManager(),
-                        jwtUtil), JWTAuthorizationFilter.class)
+                .addFilterBefore(new JWTAuthorizationFilter(authConfig.getAuthenticationManager(), jwtUtil, PUBLIC_ROUTES), JWTAuthorizationFilter.class)
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
